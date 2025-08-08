@@ -1,0 +1,1 @@
+imageTags.js expects image files to be here by default

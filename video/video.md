@@ -1,0 +1,1 @@
+videoTags.js expects video files to be here by default

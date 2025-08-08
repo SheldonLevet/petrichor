@@ -1,0 +1,79 @@
+/**
+ * progress bar stuff
+ * style this, but don't delete (or the preload animation just won't work)
+ * inkrunner preload code sets a few variables for this that you can use
+ * --progressPercent : 0% to 100%
+ * --progressDegrees : 0deg to 360deg
+ * --progressFloat   : 0.0 to 1.0 (this is unitless, so you'll need to multiply it with a base unit)
+ */
+
+[data-ir-role="progressContainer"] {
+	background-color: black;
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	z-index: 100000; /* just in case you put some elements in with  */
+	position: fixed;
+	inset: 0;
+}
+
+/**
+ * this is the actual progress indictator
+ * it's a child element of the progressContainer, so it has access to its variables
+ * turn it into a circle, a box, a triangle, whatever shape you want.
+ */
+
+[data-ir-role="progressBar"] {
+	height: 2rem;
+	background-color: white;
+	transition: width 250ms ease-out;
+	width: var(--progressPercent);
+}
+
+/**
+ * some inkrunner specific stuff
+ * makes choices underlined, styles the continue marker
+ */
+
+a,
+[data-ir-role="choice"] {
+	text-decoration: underline;
+	cursor: pointer;
+}
+
+/**
+ * this is just css reset crap
+ * i hate scrollbars and text selection so i removed them.
+ * maybe you like them. if so, put them back in.
+ */
+
+* {
+	box-sizing: border-box;
+}
+
+* {
+	-ms-overflow-style: none;
+	scrollbar-width: none;
+}
+
+*::-webkit-scrollbar {
+	display: none;
+}
+
+html {
+	user-select: none;
+	-webkit-user-select: none;
+	-webkit-tap-highlight-color: transparent;
+	color-scheme: dark light;
+}
+
+body {
+	margin: 0;
+}
+
+img, picture, video, canvas, svg {
+	display: block;
+	object-fit: contain;
+	max-width: 100%;
+	height: auto;
+}
